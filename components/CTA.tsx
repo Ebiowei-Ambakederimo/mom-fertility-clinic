@@ -1,6 +1,6 @@
 import React from 'react';
+import Image from 'next/image';
 import { Calendar } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const CTA: React.FC = () => {
   const scrollToBooking = (e: React.MouseEvent) => {
@@ -13,7 +13,7 @@ const CTA: React.FC = () => {
 
   return (
     <section className="w-full py-20 md:py-32 px-6 md:px-12 lg:px-20">
-      <div className="max-w-7xl mx-auto relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-400 to-blue-600 shadow-2xl shadow-blue-500/30">
+      <div className="max-w-7xl mx-auto relative rounded-3xl overflow-hidden bg-linear-to-br from-blue-400 to-blue-600 shadow-2xl shadow-blue-500/30">
         
         {/* Background Decorative Molecule Pattern */}
         <div className="absolute right-0 top-0 bottom-0 w-1/2 opacity-20 pointer-events-none hidden md:block">
@@ -34,16 +34,19 @@ const CTA: React.FC = () => {
           
           {/* Image Side */}
           <div className="w-full md:w-1/2 lg:w-5/12 pt-10 md:pt-0 flex justify-center md:justify-start md:pl-10 lg:pl-16">
-            <div className="relative w-64 md:w-80 lg:w-96 aspect-[3/4] md:aspect-auto md:h-[400px]">
-              <img 
-                src="https://images.unsplash.com/photo-1536768138133-722f4728d447?q=80&w=1000&auto=format&fit=crop" 
-                alt="Smiling Doctor" 
-                className="w-full h-full object-cover object-top md:object-center rounded-t-full md:rounded-none drop-shadow-2xl mask-image-bottom"
-                style={{
-                  maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
-                  WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
-                }}
-              />
+            <div className="relative w-64 md:w-80 lg:w-96 aspect-3/4 md:aspect-auto md:h-100">
+              <div className="relative w-full h-full rounded-t-full md:rounded-none overflow-hidden drop-shadow-2xl mask-image-bottom" style={{
+                maskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to bottom, black 80%, transparent 100%)'
+              }}>
+                <Image
+                  src="https://images.unsplash.com/photo-1536768138133-722f4728d447?q=80&w=1000&auto=format&fit=crop"
+                  alt="Smiling Doctor"
+                  fill
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  className="object-cover object-top md:object-center"
+                />
+              </div>
             </div>
           </div>
 
@@ -58,14 +61,14 @@ const CTA: React.FC = () => {
               Take the first step towards parenthood. Schedule a consultation with our fertility experts today.
             </p>
 
-            <Link 
-              to="/#booking" 
+            <a
+              href="#booking"
               onClick={scrollToBooking}
               className="bg-white text-blue-600 hover:bg-blue-50 font-bold py-4 px-8 rounded-full shadow-lg shadow-blue-900/20 transition-all duration-300 hover:scale-105 flex items-center gap-2 mx-auto md:mx-0 w-fit"
             >
               <Calendar className="w-5 h-5" />
               <span>Book Appointment</span>
-            </Link>
+            </a>
           </div>
 
         </div>

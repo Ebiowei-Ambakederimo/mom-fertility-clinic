@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { ArrowLeft, ArrowRight, Quote, Star } from 'lucide-react';
 
 const Testimonials: React.FC = () => {
@@ -22,12 +23,12 @@ const Testimonials: React.FC = () => {
   ];
 
   return (
-    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-gradient-to-br from-sky-50 via-blue-50 to-white">
+    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-linear-to-br from-sky-50 via-blue-50 to-white">
       
       {/* Background Decorative Blobs */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-blue-100/40 rounded-full blur-3xl mix-blend-multiply opacity-70"></div>
-        <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-sky-100/40 rounded-full blur-3xl mix-blend-multiply opacity-70"></div>
+        <div className="absolute top-[-10%] right-[-5%] w-125 h-125 bg-blue-100/40 rounded-full blur-3xl mix-blend-multiply opacity-70"></div>
+        <div className="absolute bottom-[-10%] left-[-10%] w-150 h-150 bg-sky-100/40 rounded-full blur-3xl mix-blend-multiply opacity-70"></div>
       </div>
 
       <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
@@ -63,7 +64,7 @@ const Testimonials: React.FC = () => {
                 <div>
                   <Quote className="w-10 h-10 md:w-12 md:h-12 text-blue-200 mb-6 stroke-1 fill-transparent" />
                   <p className="text-slate-500 text-lg leading-relaxed mb-8 font-medium">
-                    "{item.quote}"
+                    &quot;{item.quote}&quot;
                   </p>
                 </div>
                 
@@ -80,11 +81,15 @@ const Testimonials: React.FC = () => {
 
               {/* User Profile (Outside Card) */}
               <div className="flex items-center gap-4 px-2">
-                <img 
-                  src={item.avatar} 
-                  alt={item.author} 
-                  className="w-14 h-14 rounded-full object-cover border-2 border-white shadow-md"
-                />
+                <div className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md">
+                  <Image
+                    src={item.avatar}
+                    alt={item.author}
+                    fill
+                    sizes="56px"
+                    className="object-cover"
+                  />
+                </div>
                 <div>
                   <h4 className="font-bold text-slate-900 uppercase tracking-wide text-sm md:text-base">
                     {item.author}

@@ -1,57 +1,57 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import Image from 'next/image';
 import { Play, Check, Calendar } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
   return (
     <section className="relative w-full min-h-screen bg-slate-900 overflow-hidden flex flex-col">
       
       {/* Background Image Container */}
       <div className="absolute inset-0 z-0">
-        <img 
-          // Mom and baby image
-          src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=2670&auto=format&fit=crop"
-          alt="Mother holding newborn baby"
-          className="w-full h-full object-cover object-center lg:object-[center_30%]"
-        />
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1555252333-9f8e92e65df9?q=80&w=2670&auto=format&fit=crop"
+            alt="Mother holding newborn baby"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-center lg:object-[center_30%]"
+          />
+        </div>
         
         {/* Gradient Overlays */}
         {/* Main strong blue gradient from left - Extended width for wider text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#1e3a8a] via-[#1e3a8a]/95 to-transparent w-full md:w-[85%] lg:w-[75%] mix-blend-multiply opacity-90"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-[#1e3a8a] via-[#1e3a8a]/95 to-transparent w-full md:w-[85%] lg:w-[75%] mix-blend-multiply opacity-90"></div>
         
         {/* Secondary gradient */}
-        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/90 via-slate-900/50 to-transparent"></div>
+        <div className="absolute inset-0 bg-linear-to-r from-slate-900/90 via-slate-900/50 to-transparent"></div>
         
         {/* Bottom gradient */}
-        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-slate-900/80 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-1/2 bg-linear-to-t from-slate-900/80 to-transparent"></div>
       </div>
 
       {/* Main Content Container */}
-      <div className="relative z-10 flex-grow flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-28 pb-32">
+      <div className="relative z-10 grow flex flex-col justify-center px-6 md:px-12 lg:px-20 pt-28 pb-32">
         <div className="max-w-8xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-8 items-center h-full">
           
           {/* Text Content */}
-          <div className={`lg:col-span-9 flex flex-col justify-center transition-all duration-1000 ease-out ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className="lg:col-span-9 flex flex-col justify-center transition-all duration-1000 ease-out opacity-100 translate-y-0">
             
             <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-semibold text-white leading-tight tracking-tight mb-8 lg:mb-10">
               Your journey to <br className="hidden md:block" /> <span className="text-white/90">parenthood starts here.</span>
             </h1>
 
             <div className="flex flex-col md:flex-row gap-8 md:gap-12 items-start max-w-3xl">
-              <div className="flex-shrink-0 pt-2 hidden md:block">
+              <div className="shrink-0 pt-2 hidden md:block">
                  <span className="text-sm font-medium text-blue-200 uppercase tracking-wider border-b border-blue-200/50 pb-1">MOM Fertility</span>
               </div>
               
               <div className="flex flex-col gap-8 md:gap-10">
                 <p className="text-lg text-blue-100/80 leading-relaxed font-light max-w-xl">
-                  We specialize in making dreams come true. With world-class technology and compassionate care, we are dedicated to helping you build the family you've always wanted.
+                  We specialize in making dreams come true. With world-class technology and compassionate care, we are dedicated to helping you build the family you&apos;ve always wanted.
                 </p>
 
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6 sm:gap-8 pt-2">
@@ -78,10 +78,17 @@ const Hero: React.FC = () => {
         </div>
 
         {/* Floating Badge */}
-        <div className={`absolute top-28 right-6 md:right-12 lg:right-20 glass-badge p-3 pr-5 rounded-full flex items-center gap-3 animate-fade-in-up delay-700 shadow-xl transition-all duration-1000 hidden md:flex ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
+        <div className="absolute top-28 right-6 md:right-12 lg:right-20 glass-badge p-3 pr-5 rounded-full items-center gap-3 animate-fade-in-up delay-700 shadow-xl transition-all duration-1000 hidden md:flex opacity-100 translate-y-0">
           <div className="flex -space-x-2">
-              {[1,2,3].map(i => (
-                <img key={i} src={`https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=200&auto=format&fit=crop&random=${i}`} alt="Baby" className="w-8 h-8 rounded-full border border-white object-cover" />
+                  {[1,2,3].map((i) => (
+                <Image
+                  key={i}
+                  src={`https://images.unsplash.com/photo-1519689680058-324335c77eba?q=80&w=200&auto=format&fit=crop&random=${i}`}
+                  alt="Baby"
+                  width={32}
+                  height={32}
+                  className="rounded-full border border-white object-cover"
+                />
               ))}
           </div>
           <div>
@@ -98,29 +105,25 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Bottom Glass Panel - Stats */}
-      <div className={`absolute bottom-0 right-0 w-full lg:w-[65%] xl:w-[60%] z-20 transition-all duration-1000 delay-300 ${mounted ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-20'}`}>
+      <div className="absolute bottom-0 right-0 w-full lg:w-[65%] xl:w-[60%] z-20 transition-all duration-1000 delay-300 opacity-100 translate-y-0">
         <div className="glass-panel rounded-tl-[3rem] p-5 md:p-8 lg:p-10 border-l border-t border-white/20">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
             
             <StatItem 
               value="25+" 
               label="years of experience" 
-              delay="delay-[400ms]"
             />
             <StatItem 
               value="75%" 
               label="IVF success rate" 
-              delay="delay-[500ms]"
             />
              <StatItem 
               value="12k+" 
               label="families created" 
-              delay="delay-[600ms]"
             />
              <StatItem 
               value="15+" 
               label="fertility specialists" 
-              delay="delay-[700ms]"
             />
 
           </div>
@@ -133,14 +136,13 @@ const Hero: React.FC = () => {
 interface StatItemProps {
     value: string;
     label: string;
-    delay: string;
 }
 
-const StatItem: React.FC<StatItemProps> = ({ value, label, delay }) => {
+const StatItem: React.FC<StatItemProps> = ({ value, label }) => {
     return (
-        <div className={`flex flex-col gap-1`}>
+        <div className="flex flex-col gap-1">
             <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white tracking-tight">{value}</h3>
-            <p className="text-blue-100/70 text-[10px] md:text-xs font-medium leading-tight max-w-[100px] md:max-w-[120px]">{label}</p>
+            <p className="text-blue-100/70 text-[10px] md:text-xs font-medium leading-tight max-w-25 md:max-w-30">{label}</p>
         </div>
     )
 }

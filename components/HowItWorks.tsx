@@ -43,7 +43,7 @@ const HowItWorks: React.FC = () => {
   return (
     <section className="relative py-24 md:py-32 bg-white overflow-hidden">
        {/* Background Decorative Blob */}
-       <div className="absolute top-1/2 left-[-10%] w-[600px] h-[600px] bg-blue-50/60 rounded-full blur-3xl mix-blend-multiply pointer-events-none -translate-y-1/2 opacity-70"></div>
+       <div className="absolute top-1/2 left-[-10%] w-150 h-150 bg-blue-50/60 rounded-full blur-3xl mix-blend-multiply pointer-events-none -translate-y-1/2 opacity-70"></div>
        
        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
           <div className="text-center mb-20 md:mb-32">

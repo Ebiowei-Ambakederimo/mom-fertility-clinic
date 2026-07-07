@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Calendar, Clock, ChevronDown, MoveRight, Stethoscope, Heart, Plus, Building2, Pill } from 'lucide-react';
 
 const Appointment: React.FC = () => {
@@ -6,19 +7,21 @@ const Appointment: React.FC = () => {
     <section className="relative w-full py-20 md:py-32 bg-sky-50/50 overflow-hidden">
        {/* Background decorative elements */}
        <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-          <div className="absolute top-[-10%] left-[-10%] w-[800px] h-[800px] bg-blue-100/40 rounded-full blur-3xl mix-blend-multiply opacity-60"></div>
+          <div className="absolute top-[-10%] left-[-10%] w-200 h-200 bg-blue-100/40 rounded-full blur-3xl mix-blend-multiply opacity-60"></div>
        </div>
 
        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-24">
              {/* Left Column: Image */}
-             <div className="relative hidden lg:block h-full min-h-[600px]">
+             <div className="relative hidden lg:block h-full min-h-150">
                 <div className="absolute inset-0 bg-blue-100 rounded-[3rem] transform -rotate-3 scale-95 origin-bottom-left opacity-50"></div>
                 <div className="relative z-10 h-full rounded-[3rem] overflow-hidden shadow-2xl shadow-blue-900/10">
-                   <img
+                   <Image
                       src="https://images.unsplash.com/photo-1590611936733-5323338debe2?q=80&w=900&auto=format&fit=crop"
                       alt="Fertility Doctor"
-                      className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-700"
+                      fill
+                      sizes="(min-width: 1024px) 35vw, 100vw"
+                      className="object-cover object-top transition-transform duration-700 hover:scale-105"
                    />
                 </div>
              </div>

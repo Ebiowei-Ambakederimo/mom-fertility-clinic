@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
     <footer className="relative w-full mt-32">
       {/* Newsletter Card - Floating Overlap */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-7xl px-6 md:px-12 lg:px-20 z-20">
-        <div className="bg-white rounded-[2rem] p-8 md:p-12 lg:p-16 shadow-2xl shadow-blue-900/10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-16">
+        <div className="bg-white rounded-4xl p-8 md:p-12 lg:p-16 shadow-2xl shadow-blue-900/10 flex flex-col lg:flex-row items-center justify-between gap-10 md:gap-16">
           
           {/* Text Content */}
           <div className="flex-1 text-center lg:text-left">
@@ -59,19 +59,19 @@ const Footer: React.FC = () => {
 
               <div className="flex flex-col gap-4 mt-2">
                  <div className="flex items-start gap-3 text-blue-100/80 hover:text-white transition-colors cursor-pointer group">
-                    <div className="w-6 h-6 rounded-full bg-blue-500/50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500 transition-colors">
+                    <div className="w-6 h-6 rounded-full bg-blue-500/50 flex items-center justify-center shrink-0 group-hover:bg-blue-500 transition-colors">
                        <MapPin className="w-3 h-3 text-white" />
                     </div>
                     <span className="text-sm font-medium">123 Hope Avenue, New York, NY 10001</span>
                  </div>
                  <div className="flex items-center gap-3 text-blue-100/80 hover:text-white transition-colors cursor-pointer group">
-                    <div className="w-6 h-6 rounded-full bg-blue-500/50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500 transition-colors">
+                    <div className="w-6 h-6 rounded-full bg-blue-500/50 flex items-center justify-center shrink-0 group-hover:bg-blue-500 transition-colors">
                        <Phone className="w-3 h-3 text-white" />
                     </div>
                     <span className="text-sm font-medium">(888) 123-BABY</span>
                  </div>
                  <div className="flex items-center gap-3 text-blue-100/80 hover:text-white transition-colors cursor-pointer group">
-                    <div className="w-6 h-6 rounded-full bg-blue-500/50 flex items-center justify-center flex-shrink-0 group-hover:bg-blue-500 transition-colors">
+                    <div className="w-6 h-6 rounded-full bg-blue-500/50 flex items-center justify-center shrink-0 group-hover:bg-blue-500 transition-colors">
                        <Mail className="w-3 h-3 text-white" />
                     </div>
                     <span className="text-sm font-medium">care@momfertility.com</span>

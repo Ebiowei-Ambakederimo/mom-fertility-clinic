@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { CheckCircle2 } from 'lucide-react';
 
 const About: React.FC = () => {
@@ -12,7 +13,7 @@ const About: React.FC = () => {
   return (
     <section className="relative w-full py-20 md:py-32 bg-white overflow-hidden">
       {/* Background Decorative Shape */}
-      <div className="absolute top-0 right-0 w-[90%] md:w-[60%] h-[70%] md:h-full bg-blue-50 rounded-bl-[4rem] md:rounded-bl-[12rem] -z-0 translate-x-10 -translate-y-10 md:translate-x-0 md:translate-y-0 pointer-events-none"></div>
+      <div className="absolute top-0 right-0 w-[90%] md:w-[60%] h-[70%] md:h-full bg-blue-50 rounded-bl-[4rem] md:rounded-bl-[12rem] z-0 translate-x-10 -translate-y-10 md:translate-x-0 md:translate-y-0 pointer-events-none"></div>
 
       <div className="max-w-8xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
@@ -38,7 +39,7 @@ const About: React.FC = () => {
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
                 {features.map((feature, idx) => (
                     <li key={idx} className="flex items-center gap-3">
-                        <CheckCircle2 className="w-5 h-5 text-blue-500 flex-shrink-0" strokeWidth={2.5} />
+                        <CheckCircle2 className="w-5 h-5 text-blue-500 shrink-0" strokeWidth={2.5} />
                         <span className="text-slate-800 font-bold text-sm md:text-base">{feature}</span>
                     </li>
                 ))}
@@ -48,11 +49,13 @@ const About: React.FC = () => {
           {/* Right Column: Image */}
           <div className="relative order-1 lg:order-2">
              {/* Image container */}
-             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-100/50 aspect-[4/3] lg:aspect-auto h-full min-h-[400px]">
-                <img 
-                  src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?q=80&w=2070&auto=format&fit=crop" 
-                  alt="Fertility specialist consulting with patients" 
-                  className="w-full h-full object-cover"
+             <div className="relative rounded-3xl overflow-hidden shadow-2xl shadow-blue-100/50 aspect-4/3 lg:aspect-auto h-full min-h-100">
+                <Image
+                  src="https://images.unsplash.com/photo-1666214280557-f1b5022eb634?q=80&w=2070&auto=format&fit=crop"
+                  alt="Fertility specialist consulting with patients"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover"
                 />
              </div>
           </div>

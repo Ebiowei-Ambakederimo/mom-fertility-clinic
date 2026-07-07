@@ -34,7 +34,7 @@ const FAQ: React.FC = () => {
   return (
     <section className="relative w-full py-24 md:py-32 bg-slate-50 overflow-hidden">
        {/* Background Decorative Blob */}
-       <div className="absolute bottom-0 left-[-20%] w-[800px] h-[800px] bg-blue-100/30 rounded-full blur-3xl mix-blend-multiply pointer-events-none opacity-50"></div>
+       <div className="absolute bottom-0 left-[-20%] w-200 h-200 bg-blue-100/30 rounded-full blur-3xl mix-blend-multiply pointer-events-none opacity-50"></div>
 
        <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20 relative z-10">
          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
@@ -70,7 +70,7 @@ const FAQ: React.FC = () => {
                           {faq.question}
                         </h3>
                         <div className={`
-                          w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 flex-shrink-0
+                          w-8 h-8 rounded-full flex items-center justify-center transition-all duration-300 shrink-0
                           ${isOpen ? 'bg-blue-600 rotate-180' : 'bg-slate-100 text-slate-500'}
                         `}>
                           <ChevronDown className={`w-5 h-5 ${isOpen ? 'text-white' : 'text-slate-500'}`} />

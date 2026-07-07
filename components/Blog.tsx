@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 
 const Blog: React.FC = () => {
   const posts = [
@@ -42,17 +43,19 @@ const Blog: React.FC = () => {
                 <div key={post.id} className="group bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-2 transition-all duration-300 border border-slate-100 cursor-pointer h-full flex flex-col">
                    
                    {/* Image Container */}
-                   <div className="h-64 overflow-hidden relative flex-shrink-0">
-                      <img 
-                        src={post.image} 
+                   <div className="h-64 overflow-hidden relative shrink-0">
+                      <Image
+                        src={post.image}
                         alt={post.title}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                        fill
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
                       <div className="absolute inset-0 bg-blue-900/0 group-hover:bg-blue-900/10 transition-colors duration-300"></div>
                    </div>
 
                    {/* Content Container */}
-                   <div className="p-8 flex flex-col flex-grow">
+                   <div className="p-8 flex flex-col grow">
                       <span className="text-slate-400 text-xs font-bold uppercase tracking-wider mb-4 block">
                         {post.date}
                       </span>

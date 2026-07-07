@@ -71,7 +71,7 @@ const Departments: React.FC = () => {
               <div className="flex items-center gap-6">
                 {/* Icon Container */}
                 <div className={`
-                  flex-shrink-0 transition-colors duration-300
+                  shrink-0 transition-colors duration-300
                   ${dept.isActive ? 'text-white' : 'text-slate-500 group-hover:text-blue-500'}
                 `}>
                   {dept.icon}
